@@ -46,18 +46,17 @@ The dataset is aiming to do three things:
 
 For the intent, we have decided to define a multi-label classification question which will be used to determine the promp types as defined in the [Llama 2 paper](https://arxiv.org/abs/2307.09288). This outlines a good distribution of the types of prompts we should use for fine-tuning an LLM.
 
-- Generation:
-- Rewrite: The prompt is a sentence that is rewritten by the model.
-- Extract: The prompt is a sentence that is extracted from the input in the prompt.
-- Closed QA: The prompt is a question that is answered by the model.
-- Open QA
-- Classification
-- Summarization
-- Brainstorming
-- Chat
-- Other
-- Extract
-- Code
+- Generation: A statement that indicates the need for open generation.
+- Rewrite: A statement that is rewritten by the model.
+- Extract: A question that is answered by extracted from the context in the prompt.
+- Closed QA: A question that is answered by the model based on the context.
+- Open QA: A question that is answered by the model without any context.
+- Classification: A statement that is classified by the model.
+- Summarization: A summary of the context.
+- Brainstorming: A list of ideas or concepts.
+- Chat: A chat between two people.
+- Code: A statement about code or programming.
+- Other: A prompt that does not fit into any of the above categories.
 
 For the Toxicity, we decided to use the [Guardrailing Mistral](https://docs.mistral.ai/usage/guardrailing) proposal as a reference. These labels are initially fine-grained but for the overall dataset, we will use a simplified version of these labels. As proposed by the Mistral team.
 
@@ -77,7 +76,7 @@ For the Toxicity, we decided to use the [Guardrailing Mistral](https://docs.mist
 
 Which can be mapped to the following simplified labels:
 
-- Illegal activities such as terrorism, child abuse or fraud.
-- Hateful, harassing or violent content such as discrimination, self-harm or bullying.
-- Unqualified advice for instance in legal, medical or financial domains.
+- Illegal: Illegal activities such as terrorism, child abuse or fraud.
+- Harmfull: Hateful, harassing or violent content such as discrimination, self-harm or bullying.
+- Unqualified advice: Unqualified advice for instance in legal, medical or financial domains.
 

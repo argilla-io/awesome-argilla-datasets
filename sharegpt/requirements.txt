@@ -1,0 +1,6 @@
+argilla==1.17
+datasets
+transformers
+setfit
+text-descriptives
+streamlit

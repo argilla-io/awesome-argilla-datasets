@@ -12,6 +12,6 @@ By doing this, we hope to:
 
 ## Datasets
 
-| Dataset | Description | Size | Goal | Release |
-| --- | --- | --- | --- | --- |
-| [ShareGPT](/sharegpt) | A collection of 100 GPT-3 generated texts | 10K | Red teaming dataset | 2021-10-01 |
+| Directory | Description | Goal | Size | Release | HF Dataset | HF Model |
+| --- | --- | --- | --- | --- | --- | --- |
+| [ShareGPT](/sharegpt) | A collection of 100 GPT-3 generated texts | ethical and risk classification models | 10K | 2021-10-01 | [link](https://huggingface.co/datasets?sort=trending&search=argilla) | [link](https://huggingface.co/models?sort=trending&search=argilla) |

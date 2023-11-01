@@ -2,21 +2,14 @@
 
 ## Context
 
-The ShareGPT dataset is a "spam": { "value": 0.0, "count": 3 },
-        "lang_mismatch": { "value": 0.0, "count": 3 },
-        "pii": { "value": 0.0, "count": 3 },
-        "not_appropriate": { "value": 0.0, "count": 3 },
-        "hate_speech": { "value": 0.0, "count": 3 },
-        "sexual_content": { "value": 0.0, "count": 3 },
-        "quality": { "value": 0.416, "count": 3 },
-        "toxicity": { "value": 0.16, "count": 3 },
-        "humor": { "value": 0.0, "count": 3 },
-        "creativity": { "value": 0.33, "count": 3 },
-        "violence": { "value": 0.16, "count": 3 }
+The ShareGPT dataset is a dataset that was collected by the public users that where using the Google Chrome extension offered by [sharegpt.com](sharegpt.com) to share their ChatGPT conversations. This data should mimic real life usage of the model and can therefore be used to fine-tune a model for an actual scenario. Additionally, the Google was accused of using this dataset as a baseline to train their [BARD](https://www.theverge.com/2023/3/29/23662621/google-bard-chatgpt-sharegpt-training-denies) model.
 
 ### Goals
 
-- Red teaming for intent/harmfulness detection.
+- Classification of the dataset.
+    - Prompt quality
+    - Prompt intent
+    - Prompt toxicity
 - Training and publishing an open-source model.
 
 ### Outcomes
@@ -80,3 +73,17 @@ Which can be mapped to the following simplified labels:
 - Harmfull: Hateful, harassing or violent content such as discrimination, self-harm or bullying.
 - Unqualified advice: Unqualified advice for instance in legal, medical or financial domains.
 
+## Dataset Creation
+
+### The base
+
+We created the dataset by taking this Hugging Face dataset as a baseline. We chose to use a non-filtered dataset as a baseline to ensure it has a decent coverage on intents, toxicity and classification. Additionally, we use [the langdetect package](https://github.com/fedelopez77/langdetect) as a way to filter out non-English data because we want to focus on classification dataset for the English language.
+
+### Enhanchement for quicker annotation
+
+We chose to inlude some shorcuts for quicker annotation:
+
+- LLama2 for rating suggestion: [Llama2 License](https://ai.meta.com/llama/license/) and has a nice [C++ integraiton for Python](https://github.com/abetlen/llama-cpp-python).
+- Llama2 for intent suggestions: [Llama2 License](https://ai.meta.com/llama/license/) and it was trained on the intents we want to classify.
+- Mistral for toxicity suggestions: [Mistral License](https://mistral.ai/news/announcing-mistral-7b/) and it was trained on the [toxicity we want to classify](https://docs.mistral.ai/usage/guardrailing).
+- [Text-descriptives](https://github.com/HLasse/TextDescriptives) for [metadata filters and sorting](https://docs.argilla.io/en/latest/practical_guides/create_dataset.html#define-metadata): provide some cheap and basic text metrics to filter and sort the dataset.

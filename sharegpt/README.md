@@ -37,7 +37,7 @@ The dataset is aiming to do three things:
 2. Toxicity
 3. Quality
 
-For the intent, we have decided to define a multi-label classification question which will be used to determine the promp types as defined in the [Llama 2 paper](https://arxiv.org/abs/2307.09288). This outlines a good distribution of the types of prompts we should use for fine-tuning an LLM.
+For the intent, we have decided to define a multi-label classification question which will be used to determine the promp ttypes as defined in the [Llama 2 paper](https://arxiv.org/abs/2307.09288). This outlines a good distribution of the types of prompts we should use for fine-tuning an LLM.
 
 - Generation: A statement that indicates the need for open generation.
 - Rewrite: A statement that is rewritten by the model.
